@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "PlayerPawnBase.generated.h"
 
+class UCameraComponent;
+
 UCLASS()
 class SNAKEGAME_API APlayerPawnBase : public APawn
 {
@@ -15,6 +17,8 @@ public:
 	// Sets default values for this pawn's properties
 	APlayerPawnBase();
 
+	UPROPERTY(BlueprintReadWrite)
+		UCameraComponent* PawnCamera;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
