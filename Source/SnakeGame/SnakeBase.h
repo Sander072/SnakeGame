@@ -21,35 +21,35 @@ UCLASS()
 class SNAKEGAME_API ASnakeBase : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ASnakeBase();
 
 	UPROPERTY(EditDefaultsOnly)
-	TSubclassOf<ASnakeElementBase> SnakeElementClass;
+		TSubclassOf<ASnakeElementBase> SnakeElementClass;
 
 	UPROPERTY(EditDefaultsOnly)
-	float ElementSize;
+		float ElementSize;
 
 	UPROPERTY(EditDefaultsOnly)
-	float MovementSpeed;
+		float MovementSpeed;
 
 	UPROPERTY()
-	TArray<ASnakeElementBase*> SnakeElements;
+		TArray<ASnakeElementBase*> SnakeElements;
 
 	UPROPERTY()
-	EMovementDirection LastMoveDirection;
+		EMovementDirection LastMovementDirection;
 
-	protected:
+protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	void AddSnakeElement(int ElementsNum = 1);
 
-	void Move(float DeltaTime);
+	void Move();
 };
