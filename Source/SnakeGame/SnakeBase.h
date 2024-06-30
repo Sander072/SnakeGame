@@ -39,7 +39,11 @@ public:
 		TArray<ASnakeElementBase*> SnakeElements;
 
 	UPROPERTY()
+<<<<<<< HEAD
 		EMovementDirection LastMovementDirection;
+=======
+		EMovementDirection LastMoveDirection;
+>>>>>>> fa2da82 (Исправил 7)
 
 protected:
 	// Called when the game starts or when spawned
@@ -51,5 +55,10 @@ public:
 
 	void AddSnakeElement(int ElementsNum = 1);
 
+<<<<<<< HEAD
 	void Move();
 };
+=======
+	void Move(float DeltaTime);
+};
+>>>>>>> fa2da82 (Исправил 7)

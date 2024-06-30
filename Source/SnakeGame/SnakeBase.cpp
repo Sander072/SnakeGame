@@ -6,11 +6,17 @@ ASnakeBase::ASnakeBase()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+<<<<<<< HEAD
 
 	ElementSize = 100.0f;
 
 	MovementSpeed = 0.5f;
 	LastMovementDirection = EMovementDirection::RIGHT;
+=======
+	ElementSize = 100.f;
+	MovementSpeed = 10.f;
+	LastMoveDirection = EMovementDirection::DOWN;
+>>>>>>> fa2da82 (Исправил 7)
 }
 
 // Called when the game starts or when spawned
@@ -27,7 +33,11 @@ void ASnakeBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+<<<<<<< HEAD
 	Move();
+=======
+	Move(DeltaTime);
+>>>>>>> fa2da82 (Исправил 7)
 }
 
 void ASnakeBase::AddSnakeElement(int ElementsNum)
@@ -38,17 +48,29 @@ void ASnakeBase::AddSnakeElement(int ElementsNum)
 		FTransform NewTransform(NewLocation);
 		auto NewSnakeElement = GetWorld()->SpawnActor<ASnakeElementBase>(SnakeElementClass, NewTransform);
 		NewSnakeElement->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
+<<<<<<< HEAD
 
+=======
+>>>>>>> fa2da82 (Исправил 7)
 		SnakeElements.Add(NewSnakeElement);
 	}
 }
 
+<<<<<<< HEAD
 void ASnakeBase::Move()
 {
 	FVector MovementVector = FVector::ZeroVector;
 	float MovementSpeedDelta = ElementSize;
 
 	switch (LastMovementDirection)
+=======
+void ASnakeBase::Move(float DeltaTime)
+{
+	FVector MovementVector;
+	float MovementSpeedDelta = MovementSpeed * DeltaTime;
+
+	switch (LastMoveDirection)
+>>>>>>> fa2da82 (Исправил 7)
 	{
 	case EMovementDirection::UP:
 		MovementVector.X += MovementSpeedDelta;
@@ -56,6 +78,7 @@ void ASnakeBase::Move()
 	case EMovementDirection::DOWN:
 		MovementVector.X -= MovementSpeedDelta;
 		break;
+<<<<<<< HEAD
 	case EMovementDirection::RIGHT:
 		MovementVector.Y += MovementSpeedDelta;
 		break;
@@ -76,6 +99,17 @@ void ASnakeBase::Move()
 	}
 
 	SnakeElements[0]->AddActorWorldOffset(MovementVector);
+=======
+	case EMovementDirection::LEFT:
+		MovementVector.Y -= MovementSpeedDelta;
+		break;
+	case EMovementDirection::RIGHT:
+		MovementVector.Y -= MovementSpeedDelta;
+		break;
+	}
+
+	AddActorWorldOffset(MovementVector);
+>>>>>>> fa2da82 (Исправил 7)
 }
 
 
